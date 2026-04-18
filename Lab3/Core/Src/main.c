@@ -96,18 +96,17 @@ int main(void)
   {
 	  if (HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_0))
 	  {
-		if(HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_1) && HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_2))
-		{
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, 0);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, 1);
-		}
-	  }
-	  else
+      if(HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_1) && HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_2))
+      {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, 0);
+      } else
+      {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, 1);
+      }
+	  } else
 	  {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, 0);
+		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_15);
+      HAL_Delay(200);
 	  }
     /* USER CODE END WHILE */
 
